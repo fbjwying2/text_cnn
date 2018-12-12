@@ -1,0 +1,30 @@
+1. 预处理：
+  原始数据：E:/gaohe_data/8个专题对话记录/
+  代码：textcn/preprocess.ipynb
+  运行工具：jupyter notebook
+  输出：data/weixin_8_title_data.txt	# 用作训练数据
+
+2. 训练
+  数据：data/weixin_8_title_data.txt
+  代码：textcn/train.py  textcn/data_util.py  model.py
+
+  运行工具：python 命令行
+                  cd textcnn
+	  python train.py
+
+  输出：output/cache_cnn/vocab_label.pik
+            output/text_cnn_title_desc_checkpoint   # 模型文件 用作预测
+
+3. 预测
+  数据：output/text_cnn_title_desc_checkpoint
+  代码：textcn/predict.py  textcn/data_util_predict.py  model.py
+
+  运行工具：python 命令行
+                  cd textcnn
+	  python predict.py
+
+  输出：output/cache_vocabulary_label_pik/cnn2_label_voabulary.pik
+
+命令行显示最终结果：
+labels: ['公积金提取', '个人社保信息查询', '身份证业务', '职工生育保险待遇', '身份证_挂失']
+list_value: [0.9779267  0.00863727 0.00611591 0.00407653 0.00324372]
